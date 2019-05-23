@@ -1,0 +1,19 @@
+Part04
+Student adýnda bir sýnýf oluþturun.
+Sýnýfta bulunmasý gereken özellikler:
+- FirstName
+- LastName
+- DateOfBirth
+- StudentNumber
+- Classroom
+- GradeAverage
+- IsGraduated
+
+Sýnýfta bulunmasý gereken metotlar:
+- AddExamGrade()
+
+1. Özelliklerin tiplerine ve Auto property veya full property olup olmamasýna siz karar verin.
+2. AddExamGrade() metodu aracýlýðý ile öðrenciye sýnav notu eklenecek. Öðrencinin not ortalamasý bu metot aracýlýðý ile girilecek deðerlerden hesap edilecek. Not ortalamasý doðrudan deðer atanabilir bir özellik olmayacak.
+3. Toplamda 10 sýnava girmiþ ve not ortalamasý 70'in üstünde olan öðrenciler mezun olacak. Eðer 10 sýnav sonrasýnda not ortalamasý 70'in altýndaysa öðrenci mezun sayýlmayacak ve yeni not eklenebilecek.
+
+BONUS: 10 sýnav sonra baþarýlý olmuþ öðrencilere yeni sýnav notu eklendiðinde "Öðrenci zaten mezun olmuþtur" mesajý ile hata fýrlatýn.

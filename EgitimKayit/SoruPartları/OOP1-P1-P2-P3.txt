@@ -1,0 +1,43 @@
+Part01
+Student adýnda bir sýnýf yazýn. Sýnýfta bulunmasý gereken özellikler;
+- FirstName
+- LastName
+- DateOfBirth
+- StudentNumber
+- Classroom
+- GradeAverage
+- IsGraduated
+
+NOT: Tüm özellikler Field olarak yazýlacak
+
+
+
+Part02
+Student adýnda bir sýnýf yazýn. Sýnýfta bulunmasý gereken özellikler aþaðýdaki gibidir;
+- FirstName
+- LastName
+- DateOfBirth
+- StudentNumber
+- Classroom
+- GradeAverage
+- IsGraduated
+
+NOT: Tüm özellikleri Full Property olarak (her property için backing field yazarak) oluþturun
+
+Part03
+Student adýnda bir sýnýf oluþturun.
+Sýnýfta bulunmasý gereken özellikler:
+- FirstName
+- LastName
+- DateOfBirth
+- StudentNumber
+- Classroom
+- ExamGrade1(decimal)
+- ExamGrade2(decimal)
+- ExamGrade3(decimal)
+- GradeAverage
+- IsGraduated
+
+1. Özelliklerin tiplerine ve Auto property veya full property olup olmamasýna siz karar verin.
+2. GradeAverage: %30Grade1 %30Grade2 %40Grade3 olacak þekilde dinamik olarak hesaplanmalýdýr. 
+3. IsGraduated: Grade3 en az 30, GradeAverage en az 50 ise true aksi takdirde false olacak þekilde dinamik olarak hesaplanmalýdýr. 

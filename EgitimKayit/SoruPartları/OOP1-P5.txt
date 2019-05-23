@@ -1,0 +1,54 @@
+Part05
+Çalýþtýðýnýz þirkette yeni bir ERP uygulamasý yazýlmaktadýr.
+Size verilen görev; ERP yazýlýmýna giriþ yaparken kullanýlacak bir nesneyi tasarlamaktýr.
+Yazmanýz gereken sýnýfýn adý User, sahip olmasý gereken özellikler de aþaðýdaki gibidir;
+
+User
+- Username
+- Password
+
+Nesne hassas bilgileri taþýyacaðý için sýnýfýn tasarýmýnda güvenlik ön planda tutulmuþtur.
+Saðlamanýz gereken özellikler aþaðýdaki gibidir;
+1. Username ve Password özelliklerinin deðerleri sýnýfýn yapýcý metodu (constructor) aracýlýðý ile alýnacaktýr.
+2. Username ve Password özellikleri salt okunur deðerler olacaktýr. Bu özelliklere dýþarýdan deðer atanamayacaktýr.
+3. Username özelliði kullanýcý adýný döndürecek, Password özelliði ise kullanýcý parolasý uzunluðu kadar * karakteri döndürecektir.
+
+Örnek;
+
+User user = new User("Tsubasa", "P@55w0rd");
+Console.WriteLine("Kullanýcý adý: {0}", user.Username); // Çýktý => Tsubasa
+Console.WriteLine("Parola: {0}", user.Password); // Çýktý => ********
+
+user.Username = "Misaki"; // Derleme hatasý
+
+BONUS: Sýnýfa PasswordHash adýnda salt okunur bir özellik ekleyin.
+PasswordHash özelliði, nesneye gönderilen parolanýn HASH bilgisini döndürecektir. (SHA-1 algoritmasý kullanýlailir)
+
+
+**********************************************************************************
+Sql Server ile nasýl hash yapabileceðimizi daha önce Sql Server’da Hash iþlemi isimli makalemde yazmýþtým. Bu sefer, .net üzerinde C# ile nasýl hash iþlemi yapabileceðimizi yazacaðým.
+
+Hash, büyük boyutta girdi verisi için sabit boyutlu üretilen benzersiz deðerdir. Hash algoritmalarýnýn yapýsýndan dolayý, girdi verisindeki küçük deðiþiklikler sonuç verisinde büyük farklýlýklara yol açmaktadýr.
+
+.Net Framework üzerinde bulunan System.Security.Cryptography namespace’i, güvenli þifreleme ve çözme iþlemleri için þifreleme servislerini barýndýrýr.
+
+.Net Framework þu hash algoritmalarýný destekler;
+
+MD5, girdi verisini þifrelemek için 128 bit þifreleyici kullanýr ** SHA1, girdi verisini þifrelemek için **160 bit þifreleyici kullanýr ** SHA256, girdi verisini þifrelemek için **256 bit þifreleyici kullanýr ** SHA384, girdi verisini þifrelemek için **384 bit þifreleyici kullanýr ** SHA512, girdi verisini þifrelemek için **512 bit þifreleyici kullanýr
+
+En çok kullanýlan þifreleme yöntemlerinden biri SHA1‘dir.
+
+SHA1 Hashing Algoritmasý Örneði
+
+Öncelikle kod yazdýðýmýz dosyanýn using kýsmýna System.Secuity.Cryptography namespace’ini eklemeliyiz;
+
+using System.Secuity.Cryptography;</pre> SHA1 sýnýfýndan bir örnek oluþturalým;
+
+SHA1 sha = new SHA1CryptoServiceProvider();
+SHA1 sýnýfý abstract bir sýnýf olduðu için kendisinden örnek oluþturamýyoruz. SHA1 sýnýfýndan türetilen SHA1CryptoServiceProvider sýnýfýndan bir örnek oluþturuyoruz.
+
+Artýk yapmamýz gereken, sha isimli deðiþkenimizin ComputeHash() method’unu çaðýrmak. ComputeHash() method’u, þifrelenecek veriyi parametre olarak byte dizisi aldýðý ve geriye þifrelenmiþ veriyi byte dizisi olarak döndürdüðü için aþaðýdaki örnekte olduðu gibi kullanabiliriz;
+
+string SifrelenecekVeri = "http://www.enginpolat.com/";
+
+string SifrelenmisVeri = Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(SifrelenecekVeri)));

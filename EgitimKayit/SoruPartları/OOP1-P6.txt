@@ -1,0 +1,76 @@
+
+Part06
+Lesson adýnda bir enum yazýn. Enum içerisinde bulunacak dersler;
+- SoftwareDevelopment
+- GraphicDesign
+- DatabaseAdministration
+
+----------
+
+Classroom (derslik) adýnda bir sýnýf yazýn.
+Sýnýfta bulunmasý gereken özellikler;
+- Code
+- Capacity
+- Floor // Binada kaçýncý katta
+
+
+1. Classroom sýnýfýna 3 adet constructor metot yazýn.
+   a. Classroom(code)
+   b. Classroom(code, capacity)
+   c. Classroom(code, capacity, floor)
+2. Sýnýf kodu (numarasý) dýþýnda tüm deðerler hem okunabilir (get) hem yazýlabilir (set) özellikler olacak
+3. Varsayýlan derslik kapasitesi 5 olacak. Kapasitesi bildirilmemiþ derslikler 5 kiþilik oluþturulacak.
+4. Derslik kapasitesi 5'in altýnda bir deðer atanýrsa bu deðer 5 olarak kabul edilecek.
+5. Maksimum derslik kapasitesi 25 olacak. 25'in üstündeki bir deðer 25 olarak kabul edilecek.
+6. Dersliklerin bulunabileceði varsayýlan kat 1 olacak.
+7. Kat için 1'in altýndaki deðerler 1 olarak kabul edilecek.
+8. Binada toplam 5 kat bulunuyor. 5'in üstündeki deðerler 5 olarak kabul edilecek.
+
+----------
+
+Class (sýnýf / eðitim grubu) adýnda bir sýnýf yazýn.
+
+Sýnýfta bulunmasý gereken özellikler
+- Lesson
+- Code
+- Classroom
+- Students
+- ReadyToStart // Eðitim baþlatýlmaya hazýr
+
+Sýnýfta bulunmasý gereken metotlar;
+- AddStudent()
+- RemoveStudent()
+
+1. Bir eðitim grubu (Class) ders (Lesson) bildirilmeden oluþturulamayacak!
+2. Lesson özelliði sonradan deðiþtirilemez þekilde yazýlacak.
+3. Code özelliði salt okunur olacak ve sýnýf tarafýndan otomatik üretilecek 8 haneli bir deðer olacak
+   Örnek: Yazýlým sýnýfý için: SD293483, Grafik tasarým sýnýfý için GD384763 vb.
+4. Eðitim gruplarýnýn derslikleri için aþaðýdaki kurallar geçerli olacak;
+   a. Yazýlým sýnýfý derslikleri minimum 15 kiþilik kapasiteye sahip olmalýdýr.
+      15 kiþi kapasitesine sahip olmayan bir derslik nesneye atandýðýnda bu deðer dikkate alýnmayacaktýr.
+   b. Grafik sýnýfý derslikleri minimum 5 kiþilik kapasiteye sahip olmalýdýr.
+      10 kiþi kapasitesine sahip olmayan bir derslik nesneye atandýðýnda bu deðer dikkate alýnmayacaktýr.
+   c. Veritabaný sýnýfý derslikleri minimum 10 kiþilik kapasiteye sahip olmalýdýr.
+5. AddStudent metodu ile sýnýfa bir öðrenci eklendiðinde bu öðrenci Students dizisinde görünür olacak.
+   Derslik kapasitesinden daha fazla öðrenci eklenemeyecek.
+   Dersliði olmayan sýnýfa öðrenci eklenemeyecek.
+6. RemoveStudent metodu ile sýnýftan bir öðrenci çýkartýldýðýnda öðrenci Students dizisinden silinecek (ve dizi sayýsý bir eksilecek)
+7. Eðitim sýnýflarýnýn açýlabilmesi için (ReadyToStart) aþaðýdaki kurallar geçerli olacak;
+   a. Sýnýfýn mutlaka bir dersliði olmalýdýr
+   b. Derslik kapasitesinin %70'i dolu olmalýdýr
+
+NOT: Bu part için ayrýca bir Console uygulamasý geliþtirin.
+
+BONUS:
+Class sýnýfýna aþaðýdaki özellikleri ekleyin;
+- StartDate
+- EndDate
+Class sýnýfýna aþaðýdaki metotlarý ekleyin
+- StartClass()
+- TerminateClass()
+
+1. StartDate ve EndDate tarih bilgileri salt okunur deðerler olacak
+2. Eðer eðitim baþlatýlmaya hazýrsa StartClass() metodu çaðýrýldýðýnda StartedDate tarih bilgisi o anki tarih olarak atanacak
+   Hazýr olmayan sýnýflar için bu metot çaðýrýlsa bile StarDate deðiþmeyecek.
+3. Her eðitim toplam 30 gündür. EndDate, StartDate'in 30 gün fazlasý olarak otomatik hesap edilecek.
+4. TerminateClass() metodu çaðýrýldýðýnda sýnýftaki eðitim sonlandýrýlmýþ olacak ve EndDate bilgisi o anki tarih olarak atanacak.
